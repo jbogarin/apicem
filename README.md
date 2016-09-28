@@ -16,7 +16,7 @@ You can generate the ticket using:
 apicem ticket -u <USERNAME> -p <PASSwORD>
 
 apicem host list
-apicem network-device list -s alla
+apicem network-device list -s all
 apicem network-device count -s all
 ```
 
