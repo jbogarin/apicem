@@ -11,9 +11,10 @@ The example is at apicem.yaml.example
 Once you have the URL and ticket configured, you can go ahead and start using the CLI tool.
 
 You can generate the ticket using:
-`apicem ticket -u <USERNAME> -p <PASSwORD>`
 
-`apicem host list`
-`apicem network-device list -s all`
-`apicem network-device count -s all`
+```apicem ticket -u <USERNAME> -p <PASSwORD>
+
+apicem host list
+apicem network-device list -s all
+apicem network-device count -s all```
 
