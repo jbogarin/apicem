@@ -1,6 +1,6 @@
 # apicem
 
-Cisco APIC-EM CLI client in Go
+Cisco APIC-EM CLI client in Go. [ ![Download](https://api.bintray.com/packages/jbogarin/apicem/apicem/images/download.svg) ](https://bintray.com/jbogarin/apicem/apicem/_latestVersion)
 
 ## Usage
 

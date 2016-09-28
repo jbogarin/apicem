@@ -13,8 +13,8 @@ import (
 )
 
 var cfgFile string
-var ticket string
 var shortResponse bool
+var ticketFlag string
 
 // Client is the client
 var Client *apicem.Client
@@ -32,9 +32,11 @@ var RootCmd = &cobra.Command{
 		Client = apicem.NewClient(client)
 		Client.BaseURL, _ = url.Parse(viper.GetString("url"))
 		if cmd.Use != "ticket" {
-			var ticket string
 			viper.BindEnv("CISCO_APICEM_TICKET")
-			if viper.IsSet("CISCO_APICEM_TICKET") {
+			var ticket string
+			if ticketFlag != "" {
+				ticket = ticketFlag
+			} else if viper.IsSet("CISCO_APICEM_TICKET") {
 				ticket = viper.GetString("CISCO_APICEM_TICKET")
 			} else if viper.IsSet("ticket") {
 				ticket = viper.GetString("ticket")
@@ -59,7 +61,7 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 	RootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.apicem.yaml)")
-	RootCmd.PersistentFlags().StringVarP(&ticket, "ticket", "T", "", "APIC-EM Authorization ticket")
+	RootCmd.PersistentFlags().StringVarP(&ticketFlag, "ticket", "T", "", "APIC-EM Authorization ticket")
 	RootCmd.PersistentFlags().BoolVarP(&shortResponse, "short", "S", false, "Short response")
 	RootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
