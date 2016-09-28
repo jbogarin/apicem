@@ -24,6 +24,7 @@ import (
 )
 
 var hostsLimit string
+var hostsScope string
 
 // hostCmd represents the host command
 var hostCmd = &cobra.Command{
@@ -44,7 +45,7 @@ var hostListCmd = &cobra.Command{
 		getHostsQueryParams := &apicem.GetHostsQueryParams{
 			Limit: hostsLimit,
 		}
-		hosts, _, err := Client.Host.GetHosts("ALL", getHostsQueryParams)
+		hosts, _, err := Client.Host.GetHosts(hostsScope, getHostsQueryParams)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -60,5 +61,5 @@ func init() {
 	RootCmd.AddCommand(hostCmd)
 	hostCmd.AddCommand(hostListCmd)
 	hostListCmd.Flags().StringVarP(&hostsLimit, "max", "m", "", "max items")
-
+	hostListCmd.Flags().StringVarP(&hostsScope, "scope", "s", "", "query scope")
 }
