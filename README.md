@@ -12,9 +12,11 @@ Once you have the URL and ticket configured, you can go ahead and start using th
 
 You can generate the ticket using:
 
-```apicem ticket -u <USERNAME> -p <PASSwORD>
+```shell
+apicem ticket -u <USERNAME> -p <PASSwORD>
 
 apicem host list
-apicem network-device list -s all
-apicem network-device count -s all```
+apicem network-device list -s alla
+apicem network-device count -s all
+```
 
